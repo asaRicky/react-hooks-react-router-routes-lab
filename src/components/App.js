@@ -7,15 +7,25 @@ import Directors from "./Directors";
 import Movies from "./Movies";
 
 function App() {
-  return (
-  <div>
-    <NavBar />
-    <Route exact path="/" Component={Home} />
-    <Route exact path="/movies" Component={Movies} />
-    <Route exact path="/directors" Component={Directors} />
-    <Route exact path="/actors" Component={Actors} />
+  return <React.Fragment>
+    <div>
+     <NavBar />
+     <switch>
+     <Route path="/movies">
+       <movies />
+     </Route>
+     <Route path="/directors">
+        <Directors />
+     </Route>
+     <Route path="/actors">
+        <Actors />
+     </Route>
+     <Route exact path="/">
+        <Home />
+    </Route>
+    </switch>
   </div>
-  );
+  </React.Fragment>
 }
 
 export default App;
